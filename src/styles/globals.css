@@ -1,0 +1,47 @@
+@font-face{
+  font-family: "f1";
+  src:url('/fonts/f1-Regular.otf');
+  font-weight: 400;
+}
+@font-face{
+  font-family: "f1";
+  src:url('/fonts/f1-Bold.otf');
+  font-weight: 700;
+}
+:root{
+  --primary-color:#DC1E02;
+  --secondary-color:#19242F;
+
+  --dark: #19242F;
+  --blue: #02C2DC;
+  --blue-dark: #00a5bb;
+  --white: #FFF;
+  --gray:#767d83;
+  
+  --gold:#FAE956;
+  --silver:#E3E3E3;
+  --bronze:#F4BF70;
+  
+  --sub-title:#5B6269;
+  --text:#999DA1;
+  --text-light:#E5E5E5;  
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'f1';
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+a{
+  color:inherit;
+  text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6,p,input,textarea{
+  margin: 0px;
+  padding: 0px;
+}
