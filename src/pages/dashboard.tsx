@@ -1,7 +1,12 @@
-import styles from "style.module.css";
+import Header from "../components/Header";
+import styles from "../styles/pages/Dashboard.module.css";
 
 const Dashboard = () => {
-  return <div>teste</div>;
+  return (
+    <div className={styles.container}>
+      <Header />
+    </div>
+  );
 };
 
 export default Dashboard;

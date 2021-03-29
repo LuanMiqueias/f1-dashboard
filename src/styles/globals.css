@@ -45,3 +45,13 @@ h1,h2,h3,h4,h5,h6,p,input,textarea{
   margin: 0px;
   padding: 0px;
 }
+@media(max-width:1080px){
+  html{
+    font-size: 88%;
+  }
+}
+@media(max-width:768px){
+  html{
+    font-size: 75%;
+  }
+}
