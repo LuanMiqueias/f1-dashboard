@@ -1,0 +1,23 @@
+.container{
+  margin-top: 32px;
+  padding: 0 1rem;
+}
+.content{
+  max-width: 1300px;
+  height: calc(100vh - 64px - 50px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+  gap:16px;
+  align-items: flex-start;
+}
+@media(max-width:764px){
+  .container{
+    padding: 0;
+  }
+  .content{
+    height:initial;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+  }
+}

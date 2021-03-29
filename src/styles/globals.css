@@ -14,23 +14,29 @@
 
   --dark: #19242F;
   --blue: #02C2DC;
+  --light-blue: #e1f2f5;
   --blue-dark: #00a5bb;
   --white: #FFF;
   --gray:#767d83;
   
-  --gold:#FAE956;
-  --silver:#E3E3E3;
-  --bronze:#F4BF70;
+  --gold:#ffe91f;
+  --silver:#cecece;
+  --bronze:#ffa970;
   
+  --title: #19242F;
   --sub-title:#5B6269;
   --text:#999DA1;
-  --text-light:#E5E5E5;  
+  --text-light:#c2c2c2;  
+  --text-extraLight:#E8E8E8
 }
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'f1';
+}
+body{
+  background: #fcfcfc;
 }
 *{
   margin: 0px;

@@ -1,0 +1,26 @@
+.box{
+  width: 100%;
+  min-height: calc(100vh - 64px - 50px);
+  background: var(--white);
+  box-shadow: 0px 0px 30px -5px rgba(0,0,0,0.15);
+  padding: 1.75rem 2.75rem;
+  border-radius: 10px;
+}
+.title_box{
+  width: 100%;
+  margin-bottom: 24px;
+}
+.title_box h1{
+  font-size: 1.125rem;
+  font-weight: 400;
+  color:var(--title)
+}
+.title_box p{
+  color:var(--sub-title);
+  font-size: .75rem;
+}
+@media(max-width:768px){
+  .box{
+    padding: 1.75rem 1.5rem;
+  }
+}
