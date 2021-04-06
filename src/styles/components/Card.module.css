@@ -10,6 +10,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all .1s;
+  background: var(--white);
+  position: relative;
+  user-select: none;
 }
 .card:hover{
   transition: all .05s;
@@ -59,4 +62,64 @@
 }
 .card:nth-child(3) .colorPosition{
   background: var(--bronze);
+}
+
+.cardInfo {
+  width: 100%;
+  height: 0;
+  background: var(--white);
+  position: relative;
+  left: 0%;
+  top:100%;
+  z-index: 1000;
+  border-radius: 5px;
+  box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.15);
+  animation: animaShow .3s forwards;
+  opacity: 0;
+}
+.cardInfo_content{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:16px;
+  animation: animaShowContent .2s linear forwards;
+  padding:1rem;
+
+}
+.cardInfo img{
+  max-height: 100%;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.cardInfo p{
+  width: 100%;
+  display: block;
+  color: var(--text);
+  font-size: .75rem;
+  display: flex;
+  gap:4px;
+}
+.cardInfo p span{
+  color: var(--title);
+}
+
+@keyframes animaShow{
+  from{
+    opacity: 0;
+    height: 0;
+  }
+  to{
+    opacity: 1;
+    height: 120px;
+  }
+}
+@keyframes animaShowContent{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }

@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import Header from "../components/Header";
 import styles from "../styles/pages/Dashboard.module.css";
 import RankingDrives from "../components/RankingDrives/RankingDrives";
+import Head from "next/head";
 const fakeData = [
   {
     position: 1,
