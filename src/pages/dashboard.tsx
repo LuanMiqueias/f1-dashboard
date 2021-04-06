@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import styles from "../styles/pages/Dashboard.module.css";
 import RankingDrives from "../components/RankingDrives/RankingDrives";
 import Head from "next/head";
+import Competitions from "../components/Competitions/Competitions";
 const fakeData = [
   {
     position: 1,
@@ -142,6 +143,128 @@ const fakeData = [
     season: 2021,
   },
 ];
+const fakeCompetitions = [
+  {
+    id: 1,
+    name: "Australia Grand Prix",
+    location: {
+      country: "Australia",
+      city: "Melbourne",
+    },
+  },
+  {
+    id: 19,
+    name: "Japan Grand Prix",
+    location: {
+      country: "Japan",
+      city: "Suzuka",
+    },
+  },
+  {
+    id: 20,
+    name: "USA Grand Prix",
+    location: {
+      country: "USA",
+      city: "Elroy",
+    },
+  },
+  {
+    id: 21,
+    name: "Mexico Grand Prix",
+    location: {
+      country: "Mexico",
+      city: "Mexico",
+    },
+  },
+  {
+    id: 22,
+    name: "Brazil Grand Prix",
+    location: {
+      country: "Brazil",
+      city: "São Paulo",
+    },
+  },
+  {
+    id: 23,
+    name: "Abu Dhabi Grand Prix",
+    location: {
+      country: "Abu Dhabi",
+      city: "Yas Marina, Abou Dabi ",
+    },
+  },
+  {
+    id: 24,
+    name: "Portugal Grand Prix",
+    location: {
+      country: "Portugal",
+      city: "Algarve",
+    },
+  },
+  {
+    id: 25,
+    name: "Steiermark Grand Prix",
+    location: {
+      country: "Austria",
+      city: " Spielberg",
+    },
+  },
+  {
+    id: 26,
+    name: "Formula 1 70th Anniversary Grand Prix",
+    location: {
+      country: "Great Britain",
+      city: "Silverstone Northamptonshire",
+    },
+  },
+  {
+    id: 27,
+    name: "Toscana Grand Prix",
+    location: {
+      country: "Italy",
+      city: "Mugello",
+    },
+  },
+  {
+    id: 28,
+    name: "Eifel Grand Prix",
+    location: {
+      country: "Germany",
+      city: null,
+    },
+  },
+  {
+    id: 29,
+    name: "Emilia Romagna Grand Prix",
+    location: {
+      country: "Italy",
+      city: "Imola",
+    },
+  },
+  {
+    id: 30,
+    name: "Turkey Grand Prix",
+    location: {
+      country: "Turkey",
+      city: "Istanbul",
+    },
+  },
+  {
+    id: 31,
+    name: "Bahrain Grand Prix 2",
+    location: {
+      country: "Bahrain",
+      city: "Sakhir",
+    },
+  },
+  {
+    id: 32,
+    name: "Saudi Arabia Grand Prix",
+    location: {
+      country: "Saudi Arabia ",
+      city: "Djeddah",
+    },
+  },
+];
 const Dashboard = () => {
   return (
     <>
@@ -151,8 +274,8 @@ const Dashboard = () => {
           <Box title="Ranking drives">
             <RankingDrives data={fakeData} />
           </Box>
-          <Box title="Races" description="select one races">
-            olá
+          <Box title="Races" description="select one competitions">
+            <Competitions data={fakeCompetitions} />
           </Box>
         </div>
       </div>
