@@ -38,7 +38,7 @@
   border:2px solid var(--primary-color);
   border-radius: 5px;
   color:var(--primary-color);
-  background-color: var(--white);
+  background-color: transparent;
   cursor: pointer;
   outline: none;
   transition: all .2s;
