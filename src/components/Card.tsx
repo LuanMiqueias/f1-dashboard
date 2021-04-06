@@ -27,7 +27,7 @@ const Card = ({ name, position, team, image, points, isPlayer }: PropsCard) => {
         <div className={styles.cardInfo}>
           <div className={styles.cardInfo_content}>
             <img src={image} alt={name} />
-            <div>
+            <div className={styles.cardInfo_content_text}>
               <p>
                 <span>Nationality:</span>British
               </p>
