@@ -17,6 +17,10 @@ const RaceInfo = () => {
             />
           </div>
           <div className={styles.info}>
+            <h1>{oneRace.circuit.name}</h1>
+            <h2>
+              Type: <span>{oneRace.type}</span>
+            </h2>
             <h2>
               Status: <span>{oneRace.status}</span>
             </h2>

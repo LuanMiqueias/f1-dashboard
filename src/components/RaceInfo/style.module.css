@@ -60,6 +60,10 @@
   flex-direction: column;
   gap:8px
 }
+.info h1{
+  font-size: 1rem;
+  color:var(--title)
+}
 .info h2{
   font-size: 0.88rem;
   font-weight: 400;

@@ -17,12 +17,16 @@ const Dashboard = () => {
     RacesContext
   );
   const buttonSearch = (
-    <span
-      className={styles.search_competition}
-      onClick={() => updateIdCompetition(null)}
-    >
-      Search
-    </span>
+    <>
+      {idCompetition && (
+        <span
+          className={styles.search_competition}
+          onClick={() => updateIdCompetition(null)}
+        >
+          choose another
+        </span>
+      )}
+    </>
   );
 
   React.useEffect(() => {

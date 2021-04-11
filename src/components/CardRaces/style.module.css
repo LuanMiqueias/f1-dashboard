@@ -32,7 +32,7 @@
   font-weight: 400;
   font-size: 1rem;
   color:var(--sub-title);
-  max-width: 120px;
+  max-width: 130px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
