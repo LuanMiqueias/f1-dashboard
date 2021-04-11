@@ -24,6 +24,7 @@ interface RacesContent {
   races: IData;
   idCompetition: number;
   oneRace: PropsRaces;
+  loading: boolean;
   selectRace: (id: number) => void;
   updateRaces: (data: IData) => void;
   updateIdCompetition: (id: number) => void;
@@ -171,9 +172,11 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
   const [races, setRaces] = React.useState(null as IData);
   const [idCompetition, setIdCompetition] = React.useState(null as number);
   const [oneRace, setOneRace] = React.useState(null as PropsRaces);
+  const [loading, setLoading] = React.useState(true as boolean);
 
   React.useEffect(() => {
     //Deverá set feito um Fetch para api usando o ID da competicao
+    setLoading(true);
     (async () => {
       const response = await api.get(
         `races?competition=${idCompetition}&season=2021`,
@@ -185,6 +188,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
         }
       );
       setRaces({ data: response.data.response });
+      setLoading(false);
     })();
   }, [idCompetition]);
 
@@ -208,6 +212,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
         races,
         idCompetition,
         oneRace,
+        loading,
         selectRace,
         updateRaces,
         updateIdCompetition,

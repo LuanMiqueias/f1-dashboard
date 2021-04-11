@@ -9,10 +9,13 @@ import Races from "../components/Races/Races";
 import { RacesContext } from "../context/ContextRaces";
 import React from "react";
 import api from "../services/api";
+import Loading from "../components/Loading/Loading";
 
 const Dashboard = () => {
   const [dataDrives, setDataDrives] = React.useState([]);
   const [dataCompetitions, setDataCompetitios] = React.useState([]);
+  const [loadingDrivers, setLoadingDrivers] = React.useState(true);
+  const [loadingCompetition, setLoadingCompetition] = React.useState(true);
   const { idCompetition, races, updateIdCompetition } = React.useContext(
     RacesContext
   );
@@ -30,6 +33,7 @@ const Dashboard = () => {
   );
 
   React.useEffect(() => {
+    setLoadingDrivers(true);
     (async () => {
       const response = await api.get("/rankings/drivers?season=2021", {
         headers: {
@@ -38,9 +42,11 @@ const Dashboard = () => {
         },
       });
       setDataDrives(response.data.response);
+      setLoadingDrivers(false);
     })();
   }, []);
   React.useEffect(() => {
+    setLoadingCompetition(true);
     (async () => {
       const response = await api.get("competitions", {
         headers: {
@@ -49,6 +55,7 @@ const Dashboard = () => {
         },
       });
       setDataCompetitios(response.data.response);
+      setLoadingCompetition(false);
     })();
   }, []);
   return (
@@ -57,7 +64,7 @@ const Dashboard = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <Box title="Ranking drives">
-            <RankingDrives data={dataDrives} />
+            {loadingDrivers ? <Loading /> : <RankingDrives data={dataDrives} />}
           </Box>
           <Box
             title="Races"
@@ -66,10 +73,16 @@ const Dashboard = () => {
             }
             button={buttonSearch}
           >
-            {!idCompetition ? (
-              <Competitions data={dataCompetitions} />
+            {loadingCompetition ? (
+              <Loading />
             ) : (
-              <Races data={races.data} />
+              <>
+                {!idCompetition ? (
+                  <Competitions data={dataCompetitions} />
+                ) : (
+                  <Races data={races.data} />
+                )}
+              </>
             )}
           </Box>
         </div>
