@@ -18,6 +18,7 @@
   --blue-dark: #00a5bb;
   --white: #FFF;
   --gray:#767d83;
+  --gray-light:#f5f5f5;
   
   --gold:#ffe91f;
   --silver:#cecece;
@@ -37,6 +38,7 @@ body {
 }
 body{
   background: hsl(215, 10%, 95%);
+  overflow-x: hidden;
 }
 *{
   margin: 0px;

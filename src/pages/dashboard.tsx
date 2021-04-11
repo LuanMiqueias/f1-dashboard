@@ -5,6 +5,9 @@ import styles from "../styles/pages/Dashboard.module.css";
 import RankingDrives from "../components/RankingDrives/RankingDrives";
 import Head from "next/head";
 import Competitions from "../components/Competitions/Competitions";
+import Races from "../components/Races/Races";
+import { RacesContext } from "../context/ContextRaces";
+import React from "react";
 const fakeData = [
   {
     position: 1,
@@ -265,7 +268,19 @@ const fakeCompetitions = [
     },
   },
 ];
+
 const Dashboard = () => {
+  const { idCompetition, races, updateIdCompetition } = React.useContext(
+    RacesContext
+  );
+  const buttonSearch = (
+    <span
+      className={styles.search_competition}
+      onClick={() => updateIdCompetition(null)}
+    >
+      Search
+    </span>
+  );
   return (
     <>
       <Header />
@@ -274,8 +289,18 @@ const Dashboard = () => {
           <Box title="Ranking drives">
             <RankingDrives data={fakeData} />
           </Box>
-          <Box title="Races" description="select one competitions">
-            <Competitions data={fakeCompetitions} />
+          <Box
+            title="Races"
+            description={
+              !idCompetition ? "select one competitions" : "select one races"
+            }
+            button={buttonSearch}
+          >
+            {!idCompetition ? (
+              <Competitions data={fakeCompetitions} />
+            ) : (
+              <Races data={races.data} />
+            )}
           </Box>
         </div>
       </div>

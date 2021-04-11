@@ -1,0 +1,48 @@
+
+.card_races{
+  width: 100%;
+  transition: all .2s;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap:8px;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  background: var(--white);
+  position: relative;
+  user-select: none;
+  border:1px solid rgb(238, 238, 238);
+}
+.card_races:hover{
+  transition: all .07s;
+  transform: translateX(-2%) ;
+  box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.2);
+}
+.content_card_races{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap:4px
+}
+.content_card_races h2{
+  font-weight: 400;
+  font-size: 1rem;
+  color:var(--sub-title);
+  max-width: 120px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.content_card_races p{
+  font-weight: 400;
+  font-size: .75rem;
+  color:var(--text-light);
+  max-width: 220px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

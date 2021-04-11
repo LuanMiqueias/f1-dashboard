@@ -1,4 +1,4 @@
-import Card from "../Card";
+import React from "react";
 import CardCompetition from "../CardCompetition/CardCompetition";
 import styles from "./style.module.css";
 
@@ -22,6 +22,7 @@ const Competitions = ({ data }: IData) => {
             id={item.id}
             name={item.name}
             location={item.location}
+            key={item.id}
           />
         );
       })}

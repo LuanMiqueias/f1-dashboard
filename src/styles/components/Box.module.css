@@ -6,9 +6,14 @@
   padding: 1.75rem 2.75rem;
   border-radius: 10px;
 }
+.content_top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
 .title_box{
   width: 100%;
-  margin-bottom: 24px;
 }
 .title_box h1{
   font-size: 1.125rem;
@@ -19,8 +24,14 @@
   color:var(--sub-title);
   font-size: .75rem;
 }
+
 @media(max-width:768px){
   .box{
     padding: 1.75rem 1.5rem;
+  }
+}
+@media(max-width:290px){
+  .box{
+    padding: 1.75rem 0rem;
   }
 }
