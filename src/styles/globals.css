@@ -53,6 +53,12 @@ h1,h2,h3,h4,h5,h6,p,input,textarea{
   margin: 0px;
   padding: 0px;
 }
+.waring{
+  color:var(--text);
+  font-size: .88rem;
+  max-width: 90%;
+  margin-top:.5rem
+}
 @media(max-width:1080px){
   html{
     font-size: 88%;

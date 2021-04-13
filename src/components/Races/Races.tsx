@@ -25,24 +25,34 @@ interface IData {
   data: PropsRaces[];
 }
 const Races = ({ data }: IData) => {
-  const { loading } = React.useContext(RacesContext);
+  const { loading, error } = React.useContext(RacesContext);
   return (
     <div className={styles.container}>
       <div className={styles.content_races}>
         {loading ? (
           <Loading />
         ) : (
-          data.map((item) => {
-            return (
-              <CardRaces
-                key={item.id}
-                id={item.id}
-                circuit={item.circuit}
-                type={item.type}
-                date={item.date}
-              />
-            );
-          })
+          <>
+            {data.length > 0 ? (
+              data.map((item) => {
+                return (
+                  <CardRaces
+                    key={item.id}
+                    id={item.id}
+                    circuit={item.circuit}
+                    type={item.type}
+                    date={item.date}
+                  />
+                );
+              })
+            ) : (
+              <p className="waring">
+                {error
+                  ? error
+                  : "Not even a race is scheduled for this competition"}
+              </p>
+            )}
+          </>
         )}
       </div>
       {screen.width >= 960 && (

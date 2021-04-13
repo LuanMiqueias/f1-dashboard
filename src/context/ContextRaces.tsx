@@ -25,147 +25,11 @@ interface RacesContent {
   idCompetition: number;
   oneRace: PropsRaces;
   loading: boolean;
+  error: string;
   selectRace: (id: number) => void;
   updateRaces: (data: IData) => void;
   updateIdCompetition: (id: number) => void;
 }
-const fakeRaces = [
-  {
-    id: 1373,
-    competition: {
-      id: 1,
-      name: "Australia Grand Prix",
-      location: {
-        country: "Australia",
-        city: "Melbourne",
-      },
-    },
-    circuit: {
-      id: 1,
-      name: "Albert Park",
-      image: "https://media.api-sports.io/formula-1/circuits/1.png",
-    },
-    season: 2021,
-    type: "Race",
-    laps: {
-      current: null,
-      total: 58,
-    },
-    distance: "307.6 Kms",
-    timezone: "utc",
-    date: "2021-11-21T06:00:00+00:00",
-    weather: null,
-    status: "Scheduled",
-  },
-  {
-    id: 1374,
-    competition: {
-      id: 1,
-      name: "Australia Grand Prix",
-      location: {
-        country: "Australia",
-        city: "Melbourne",
-      },
-    },
-    circuit: {
-      id: 1,
-      name: "Albert Park",
-      image: "https://media.api-sports.io/formula-1/circuits/1.png",
-    },
-    season: 2021,
-    type: "1st Qualifying",
-    laps: {
-      current: null,
-      total: null,
-    },
-    distance: null,
-    timezone: "utc",
-    date: "2021-11-20T06:00:00+00:00",
-    weather: null,
-    status: "Scheduled",
-  },
-  {
-    id: 1375,
-    competition: {
-      id: 1,
-      name: "Australia Grand Prix",
-      location: {
-        country: "Australia",
-        city: "Melbourne",
-      },
-    },
-    circuit: {
-      id: 1,
-      name: "Albert Park",
-      image: "https://media.api-sports.io/formula-1/circuits/1.png",
-    },
-    season: 2021,
-    type: "3rd Practice",
-    laps: {
-      current: null,
-      total: null,
-    },
-    distance: null,
-    timezone: "utc",
-    date: "2021-11-20T03:00:00+00:00",
-    weather: null,
-    status: "Scheduled",
-  },
-  {
-    id: 1376,
-    competition: {
-      id: 1,
-      name: "Australia Grand Prix",
-      location: {
-        country: "Australia",
-        city: "Melbourne",
-      },
-    },
-    circuit: {
-      id: 1,
-      name: "Albert Park",
-      image: "https://media.api-sports.io/formula-1/circuits/1.png",
-    },
-    season: 2021,
-    type: "2nd Practice",
-    laps: {
-      current: null,
-      total: null,
-    },
-    distance: null,
-    timezone: "utc",
-    date: "2021-11-19T05:00:00+00:00",
-    weather: null,
-    status: "Scheduled",
-  },
-  {
-    id: 1377,
-    competition: {
-      id: 1,
-      name: "Australia Grand Prix",
-      location: {
-        country: "Australia",
-        city: "Melbourne",
-      },
-    },
-    circuit: {
-      id: 1,
-      name: "Albert Park",
-      image: "https://media.api-sports.io/formula-1/circuits/1.png",
-    },
-    season: 2021,
-    type: "1st Practice",
-    laps: {
-      current: null,
-      total: null,
-    },
-    distance: null,
-    timezone: "utc",
-    date: "2021-11-19T01:30:00+00:00",
-    weather: null,
-    status: "Scheduled",
-  },
-];
 export const RacesContext = React.createContext({} as RacesContent);
 
 export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
@@ -173,6 +37,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
   const [idCompetition, setIdCompetition] = React.useState(null as number);
   const [oneRace, setOneRace] = React.useState(null as PropsRaces);
   const [loading, setLoading] = React.useState(true as boolean);
+  const [error, setError] = React.useState("" as string);
 
   React.useEffect(() => {
     //Deverá set feito um Fetch para api usando o ID da competicao
@@ -187,6 +52,11 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
           },
         }
       );
+      if (response.data.errors.request) {
+        setError(
+          "Sorry for the inconvenience, this site uses a free API plan and you or someone else has exceeded the limit 😭, please try again later."
+        );
+      }
       setRaces({ data: response.data.response });
       setLoading(false);
     })();
@@ -213,6 +83,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
         idCompetition,
         oneRace,
         loading,
+        error,
         selectRace,
         updateRaces,
         updateIdCompetition,
