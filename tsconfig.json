@@ -25,5 +25,7 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  //CSS MODULE
+  "moduleDirectories": ["node_modules", "src"]
 }
