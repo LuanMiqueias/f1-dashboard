@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import styles from "../styles/components/Card.module.css";
+import styles from "./style.module.css";
 interface PropsCard {
   position: number;
   name: string;

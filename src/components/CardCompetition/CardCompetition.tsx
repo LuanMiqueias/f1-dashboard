@@ -1,6 +1,6 @@
 import React from "react";
 import { RacesContext } from "../../context/ContextRaces";
-import Card from "../Card";
+import Card from "../CardDrivers/Card";
 import styles from "./style.module.css";
 
 interface PropsDrives {
