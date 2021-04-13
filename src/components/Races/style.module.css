@@ -1,0 +1,38 @@
+.container{
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap:16px;
+  animation: animaShow .2s ease-out forwards;
+}
+.content_races{
+  border-radius: 5px;
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+}
+.content_races_info{
+  padding: 0rem;
+  flex:1.5;
+  width: 100%;
+  min-width: 250px;
+  max-height: 480px;
+  background: var(--gray-light);
+  border:solid 2px #eee;
+  position: sticky;
+  top:32px;
+}
+@keyframes animaShow {
+  0%{
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50%{
+    opacity: initial;
+  }
+  100%{
+      transform: initial;
+  }
+}

@@ -11,6 +11,11 @@
   gap:16px;
   align-items: flex-start;
 }
+.search_competition{
+  color: var(--text-light);
+  cursor: pointer;
+  white-space: nowrap;
+}
 @media(max-width:764px){
   .container{
     padding: 0;

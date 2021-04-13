@@ -30,6 +30,8 @@ const RankingDrives = ({ data }: IData) => {
             position={item.position}
             team={item.team.name}
             key={item.driver.id + "_ranking_drivers"}
+            image={item.driver.image}
+            points={item.points}
           />
         );
       })}

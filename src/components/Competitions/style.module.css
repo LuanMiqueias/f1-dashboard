@@ -2,9 +2,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap:8px;
-  animation: animaShow .1s forwards;
+  animation: animaShow .3s linear forwards;
 }
 
 @keyframes animaShow{

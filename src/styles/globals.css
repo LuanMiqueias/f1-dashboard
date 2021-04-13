@@ -18,6 +18,7 @@
   --blue-dark: #00a5bb;
   --white: #FFF;
   --gray:#767d83;
+  --gray-light:#f5f5f5;
   
   --gold:#ffe91f;
   --silver:#cecece;
@@ -27,7 +28,7 @@
   --sub-title:#5B6269;
   --text:#999DA1;
   --text-light:#c2c2c2;  
-  --text-extraLight:#E8E8E8
+  --text-extraLight:#E8E8E8;
 }
 html,
 body {
@@ -36,7 +37,8 @@ body {
   font-family: 'f1';
 }
 body{
-  background: #fcfcfc;
+  background: hsl(215, 10%, 95%);
+  overflow-x: hidden;
 }
 *{
   margin: 0px;
@@ -51,6 +53,12 @@ h1,h2,h3,h4,h5,h6,p,input,textarea{
   margin: 0px;
   padding: 0px;
 }
+.waring{
+  color:var(--text);
+  font-size: .88rem;
+  max-width: 90%;
+  margin-top:.5rem
+}
 @media(max-width:1080px){
   html{
     font-size: 88%;
@@ -58,6 +66,6 @@ h1,h2,h3,h4,h5,h6,p,input,textarea{
 }
 @media(max-width:768px){
   html{
-    font-size: 75%;
+    font-size: 85%;
   }
 }

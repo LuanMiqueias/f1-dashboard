@@ -1,157 +1,84 @@
 import Box from "../components/Box";
-import Card from "../components/Card";
 import Header from "../components/Header";
 import styles from "../styles/pages/Dashboard.module.css";
 import RankingDrives from "../components/RankingDrives/RankingDrives";
-const fakeData = [
-  {
-    position: 1,
-    driver: {
-      id: 20,
-      name: "Lewis Hamilton",
-      image: "https://media.api-sports.io/formula-1/drivers/20.png",
-    },
-    team: {
-      id: 5,
-      name: "Mercedes-AMG Petronas",
-      logo: "https://media.api-sports.io/formula-1/teams/5.png",
-    },
-    points: 25,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 2,
-    driver: {
-      id: 25,
-      name: "Max Verstappen",
-      image: "https://media.api-sports.io/formula-1/drivers/25.png",
-    },
-    team: {
-      id: 1,
-      name: "Red Bull Racing",
-      logo: "https://media.api-sports.io/formula-1/teams/1.png",
-    },
-    points: 18,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 3,
-    driver: {
-      id: 5,
-      name: "Valtteri Bottas",
-      image: "https://media.api-sports.io/formula-1/drivers/5.png",
-    },
-    team: {
-      id: 5,
-      name: "Mercedes-AMG Petronas",
-      logo: "https://media.api-sports.io/formula-1/teams/5.png",
-    },
-    points: 16,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 4,
-    driver: {
-      id: 49,
-      name: "Lando Norris",
-      image: "https://media.api-sports.io/formula-1/drivers/49.png",
-    },
-    team: {
-      id: 2,
-      name: "McLaren Racing",
-      logo: "https://media.api-sports.io/formula-1/teams/2.png",
-    },
-    points: 12,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 5,
-    driver: {
-      id: 10,
-      name: "Sergio Perez",
-      image: "https://media.api-sports.io/formula-1/drivers/10.png",
-    },
-    team: {
-      id: 1,
-      name: "Red Bull Racing",
-      logo: "https://media.api-sports.io/formula-1/teams/1.png",
-    },
-    points: 10,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 6,
-    driver: {
-      id: 34,
-      name: "Charles Leclerc",
-      image: "https://media.api-sports.io/formula-1/drivers/34.png",
-    },
-    team: {
-      id: 3,
-      name: "Scuderia Ferrari",
-      logo: "https://media.api-sports.io/formula-1/teams/3.png",
-    },
-    points: 8,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 7,
-    driver: {
-      id: 14,
-      name: "Daniel Ricciardo",
-      image: "https://media.api-sports.io/formula-1/drivers/14.png",
-    },
-    team: {
-      id: 2,
-      name: "McLaren Racing",
-      logo: "https://media.api-sports.io/formula-1/teams/2.png",
-    },
-    points: 6,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-  {
-    position: 8,
-    driver: {
-      id: 24,
-      name: "Carlos Sainz Jr",
-      image: "https://media.api-sports.io/formula-1/drivers/24.png",
-    },
-    team: {
-      id: 3,
-      name: "Scuderia Ferrari",
-      logo: "https://media.api-sports.io/formula-1/teams/3.png",
-    },
-    points: 4,
-    wins: null,
-    behind: null,
-    season: 2021,
-  },
-];
-const Dashboard = () => {
+import Competitions from "../components/Competitions/Competitions";
+import Races from "../components/Races/Races";
+import { RacesContext } from "../context/ContextRaces";
+import React from "react";
+import api from "../services/api";
+import { GetStaticProps } from "next";
+
+interface IDataDrivers {
+  position: number;
+  driver: {
+    id: number;
+    name: string;
+    image: string;
+  };
+  team: {
+    id: number;
+    name: string;
+    logo: string;
+  };
+  points: number;
+  season: number;
+}
+interface IDataCompetitions {
+  id: number;
+  name: string;
+  location: {
+    country: string;
+    city: string;
+  };
+}
+interface IProps {
+  drivers: IDataDrivers[];
+  competitions: IDataCompetitions[];
+  error: string;
+}
+const Dashboard: React.FC<IProps> = ({ drivers, competitions, error }) => {
+  const { idCompetition, races, updateIdCompetition } = React.useContext(
+    RacesContext
+  );
+  const buttonSearch = (
+    <>
+      {idCompetition && (
+        <span
+          className={styles.search_competition}
+          onClick={() => updateIdCompetition(null)}
+        >
+          choose another
+        </span>
+      )}
+    </>
+  );
   return (
     <>
       <Header />
       <div className={styles.container}>
         <div className={styles.content}>
           <Box title="Ranking drives">
-            <RankingDrives data={fakeData} />
+            {!error && <RankingDrives data={drivers} />}
           </Box>
-          <Box title="Races" description="select one races">
-            olá
+          <Box
+            title="Races"
+            description={
+              !idCompetition ? "select one competitions" : "select one races"
+            }
+            button={buttonSearch}
+          >
+            {error ? (
+              <p className="waring">{error}</p>
+            ) : (
+              <>
+                {!idCompetition ? (
+                  <Competitions data={competitions} />
+                ) : (
+                  <Races data={races.data} />
+                )}
+              </>
+            )}
           </Box>
         </div>
       </div>
@@ -159,4 +86,39 @@ const Dashboard = () => {
   );
 };
 
+export const getStaticProps: GetStaticProps = async () => {
+  const headers_API = {
+    "x-rapidapi-host": "v1.formula-1.api-sports.io",
+    "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY,
+  };
+  let error = "";
+  //----------START
+  const response_drivers = await api.get("/rankings/drivers?season=2021", {
+    headers: headers_API,
+  });
+  const drivers: IDataDrivers[] = response_drivers.data.response;
+  //----------END
+
+  //----------START
+  const response_competitions = await api.get("competitions", {
+    headers: headers_API,
+  });
+  const competitions: IDataCompetitions[] = response_competitions.data.response;
+  //----------END
+  if (
+    response_competitions.data.errors.requests ||
+    response_drivers.data.errors.requests
+  ) {
+    error =
+      "Sorry for the inconvenience, this site uses a free API plan and you or someone else has exceeded the limit 😭, please try again later.";
+  }
+  return {
+    props: {
+      drivers,
+      competitions,
+      error,
+    },
+    revalidate: 259200,
+  };
+};
 export default Dashboard;

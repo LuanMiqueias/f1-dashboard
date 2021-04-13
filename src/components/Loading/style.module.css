@@ -1,0 +1,21 @@
+.loading{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: solid var(--gray-light);
+  border-top: solid var(--primary-color);
+  border-width: 1px;
+  animation: loadingAnima .5s linear infinite;
+}
+@keyframes loadingAnima{
+  to{
+    transform: rotate(360deg);
+  }
+}
+.container{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
