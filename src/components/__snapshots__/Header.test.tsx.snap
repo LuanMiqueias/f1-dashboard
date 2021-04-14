@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should math snapshot 1`] = `
+<header
+  class="container"
+>
+  <div
+    class="content"
+  >
+    <img
+      alt="logo"
+      class="logo"
+      src="logo-f1.svg"
+    />
+    <p
+      class="year"
+    >
+      2021
+    </p>
+  </div>
+</header>
+`;
