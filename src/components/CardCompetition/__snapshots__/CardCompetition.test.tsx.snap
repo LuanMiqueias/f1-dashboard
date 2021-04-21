@@ -1,22 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should have snapshot 1`] = `
-<div>
+<div
+  class="card_competition"
+>
   <div
-    class="card_competition"
+    class="content_card_competition"
   >
-    <div
-      class="content_card_competition"
-    >
-      <h2>
-        name1
-      </h2>
-      <p>
-        country1
-        , 
-        city1
-      </p>
-    </div>
+    <h2>
+      name1
+    </h2>
+    <p>
+      country1
+      , 
+      city1
+    </p>
   </div>
 </div>
 `;

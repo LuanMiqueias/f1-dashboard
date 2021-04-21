@@ -73,10 +73,12 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
     setOneRace(null);
   }
   function selectRace(id: number) {
-    const race = races.data.filter((item) => {
-      return item.id === id;
-    });
-    setOneRace(race[0]);
+    if (races) {
+      const race = races.data.filter((item) => {
+        return item.id === id;
+      });
+      setOneRace(race[0]);
+    }
   }
   return (
     <RacesContext.Provider

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+<div
+  class="card_races"
+>
+  <div
+    class="content_card_races"
+  >
+    <h2>
+      name test
+    </h2>
+    <p>
+      type test
+    </p>
+  </div>
+  <div
+    class="content_card_races"
+  >
+    <p>
+      Dev 17, 3:24 AM
+    </p>
+  </div>
+</div>
+`;
