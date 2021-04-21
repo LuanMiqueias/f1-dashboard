@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should math snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="content_races"
+  >
+    <div
+      class="card_races"
+    >
+      <div
+        class="content_card_races"
+      >
+        <h2>
+          string-test
+        </h2>
+        <p>
+          string
+        </p>
+      </div>
+      <div
+        class="content_card_races"
+      >
+        <p>
+          Jan 1, 00:00 PM
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="content_races"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="content"
+        style="min-height: 400px;"
+      >
+        <p
+          class="text"
+        >
+          Select one race for more informations
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
