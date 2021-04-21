@@ -41,7 +41,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
 
   React.useEffect(() => {
     //Deverá set feito um Fetch para api usando o ID da competicao
-    if (idCompetition) {
+    if (idCompetition >= 0) {
       setLoading(true);
       (async () => {
         const response = await api.get(
@@ -73,12 +73,10 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
     setOneRace(null);
   }
   function selectRace(id: number) {
-    if (races) {
-      const race = races.data.filter((item) => {
-        return item.id === id;
-      });
-      setOneRace(race[0]);
-    }
+    const race = races.data.filter((item) => {
+      return item.id === id;
+    });
+    setOneRace(race[0]);
   }
   return (
     <RacesContext.Provider
