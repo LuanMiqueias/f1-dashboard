@@ -12,7 +12,7 @@ const fakeData = {
 };
 it("Should have snapshot", () => {
   const { container } = render(<CardCompetition {...fakeData} />);
-  expect(container).toMatchSnapshot();
+  expect(container.firstChild).toMatchSnapshot();
 });
 
 it("Shoud have props(name, country, city)", () => {
