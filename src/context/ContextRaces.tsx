@@ -41,7 +41,7 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
 
   React.useEffect(() => {
     //Deverá set feito um Fetch para api usando o ID da competicao
-    if (idCompetition >= 0) {
+    if (idCompetition || idCompetition === 0) {
       setLoading(true);
       (async () => {
         const response = await api.get(
