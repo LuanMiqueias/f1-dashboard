@@ -41,25 +41,27 @@ export const RacesProvider: React.FC<ReactNode> = ({ children }) => {
 
   React.useEffect(() => {
     //Deverá set feito um Fetch para api usando o ID da competicao
-    setLoading(true);
-    (async () => {
-      const response = await api.get(
-        `races?competition=${idCompetition}&season=2021`,
-        {
-          headers: {
-            "x-rapidapi-host": "v1.formula-1.api-sports.io",
-            "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY,
-          },
-        }
-      );
-      if (response.data.errors.request) {
-        setError(
-          "Sorry for the inconvenience, this site uses a free API plan and you or someone else has exceeded the limit 😭, please try again later."
+    if (idCompetition) {
+      setLoading(true);
+      (async () => {
+        const response = await api.get(
+          `races?competition=${idCompetition}&season=2021`,
+          {
+            headers: {
+              "x-rapidapi-host": "v1.formula-1.api-sports.io",
+              "x-rapidapi-key": process.env.NEXT_PUBLIC_API_KEY,
+            },
+          }
         );
-      }
-      setRaces({ data: response.data.response });
-      setLoading(false);
-    })();
+        if (response.data.errors.request) {
+          setError(
+            "Sorry for the inconvenience, this site uses a free API plan and you or someone else has exceeded the limit 😭, please try again later."
+          );
+        }
+        setRaces({ data: response.data.response });
+        setLoading(false);
+      })();
+    }
   }, [idCompetition]);
 
   function updateRaces(data: IData) {
