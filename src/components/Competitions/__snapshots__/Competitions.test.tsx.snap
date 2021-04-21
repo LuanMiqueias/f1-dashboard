@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should math snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="card_competition"
+  >
+    <div
+      class="content_card_competition"
+    >
+      <h2>
+        string
+      </h2>
+      <p>
+        string
+        , 
+        string
+      </p>
+    </div>
+  </div>
+</div>
+`;
