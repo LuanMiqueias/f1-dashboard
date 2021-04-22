@@ -75,7 +75,7 @@ const Dashboard: React.FC<IProps> = ({ drivers, competitions, error }) => {
                 {!idCompetition ? (
                   <Competitions data={competitions} />
                 ) : (
-                  <Races data={races.data} />
+                  <Races data={races?.data} />
                 )}
               </>
             )}
