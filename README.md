@@ -35,7 +35,7 @@ Meu objetivo com esse projeto foi aprender mais sobre como utilizar o getStaticP
 - Clone o projeto
 - Abra o terminal na pasta do projeto
 - Instale as dependencias com `yarn` ou `npm install`
-- Depois rode a aplicação com `yarn dev` ou `npm dev`
+- Depois rode a aplicação com `yarn dev` ou `npm run dev`
 
 ## Imagens do projeto
 <div >
