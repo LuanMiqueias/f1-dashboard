@@ -11,16 +11,10 @@ Meu objetivo com projeto foi aprender mais sobre como utilizar o getStaticProps 
 - [x] Ver informações das corridas e circuitos de cada competição.
 - [x] Top 20 e as competições atualizam seus valores a cada 24H.
 - [x] Layout responsivo.
-
-### O que ainda falta:
-- [ ] Testes para todos os componentes
+- [x] Testes 
 
 ### Para rodar o projeto 
+- Clone o projeto
+- Abra o terminal na pasta do projeto
 - Instale as dependencias com `yarn` ou `npm install`
 - Depois rode a aplicação com `yarn dev` ou `npm dev`
-
-### Para rodar os testes do projeto
-- Inicie o teste com `yarn test` ou `npm test`
-
-### Para criar uma build da aplicação
-- Rode `yarn build` ou `npm build`
