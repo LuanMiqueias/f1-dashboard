@@ -40,7 +40,5 @@ Meu objetivo com esse projeto foi aprender mais sobre como utilizar o getStaticP
 ## Imagens do projeto
 <div >
    <img align=center src="https://user-images.githubusercontent.com/47904212/116277946-5cc24f00-a75c-11eb-9155-1d5c075bd0b1.gif" alt=""/>
-  <br>
-  <img align=center src="https://user-images.githubusercontent.com/47904212/116278679-1c170580-a75d-11eb-8764-b7f9600a92af.gif" alt=""/>
 </div>
 
