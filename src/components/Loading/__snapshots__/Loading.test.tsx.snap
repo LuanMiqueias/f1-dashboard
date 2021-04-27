@@ -3,6 +3,7 @@
 exports[`Should math snapshot 1`] = `
 <div
   class="container"
+  data-testid="loading"
 >
   <div
     class="loading"

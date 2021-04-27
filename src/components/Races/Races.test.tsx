@@ -1,4 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
+import { RacesContext, RacesProvider } from "../../context/ContextRaces";
+import Loading from "../Loading/Loading";
 import Races from "./Races";
 
 const fakeData = [
@@ -30,5 +32,15 @@ it("Should show the message if data is an empty array", () => {
   expect(
     screen.getByText(/Not even a race is scheduled for this competition/i)
   ).toBeInTheDocument();
-  // expect(container.firstChild).toMatchSnapshot();
+});
+
+it("Should show loading if loading is equal to true", () => {
+  const contextCallback = jest.fn();
+  render(
+    <RacesProvider>
+      <Races data={fakeData} />
+      <RacesContext.Consumer>{contextCallback}</RacesContext.Consumer>
+    </RacesProvider>
+  );
+  expect(screen.getByTestId(/loading/i));
 });
