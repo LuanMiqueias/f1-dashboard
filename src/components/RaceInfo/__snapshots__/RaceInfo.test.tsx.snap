@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should math snapshot 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="content"
+    style=""
+  >
+    <div
+      class="imgRace"
+    >
+      <img
+        alt="string"
+        src="string"
+        width="100%"
+      />
+    </div>
+    <div
+      class="info"
+    >
+      <h1>
+        string
+      </h1>
+      <h2>
+        Type: 
+        <span>
+          string
+        </span>
+      </h2>
+      <h2>
+        Status: 
+        <span>
+          string
+        </span>
+      </h2>
+      <h2>
+        Distance:
+        <span>
+          no informations
+        </span>
+      </h2>
+      <h2>
+        Laps:
+        <span>
+          10
+        </span>
+      </h2>
+    </div>
+  </div>
+</div>
+`;
