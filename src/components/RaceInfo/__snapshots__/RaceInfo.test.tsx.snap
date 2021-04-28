@@ -11,8 +11,21 @@ exports[`Should math snapshot 1`] = `
     <div
       class="imgRace"
     >
+      <div
+        class="loading_img"
+      >
+        <div
+          class="container"
+          data-testid="loading"
+        >
+          <div
+            class="loading"
+          />
+        </div>
+      </div>
       <img
         alt="string"
+        class=""
         src="string"
         width="100%"
       />

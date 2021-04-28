@@ -1,19 +1,28 @@
 import React from "react";
 import { RacesContext } from "../../context/ContextRaces";
+import Loading from "../Loading/Loading";
 import styles from "./style.module.css";
 
 const RaceInfo = () => {
   const { oneRace } = React.useContext(RacesContext);
+  const [imgLoading, setImgLoading] = React.useState(true);
 
   return (
     <div className={styles.container}>
       {oneRace ? (
         <div className={styles.content}>
           <div className={styles.imgRace}>
+            {imgLoading && (
+              <div className={styles.loading_img}>
+                <Loading />
+              </div>
+            )}
             <img
               src={oneRace.circuit.image}
               width="100%"
               alt={oneRace.circuit.name}
+              className={!imgLoading ? styles.img_loaded : ""}
+              onLoad={() => setImgLoading(false)}
             />
           </div>
           <div className={styles.info}>

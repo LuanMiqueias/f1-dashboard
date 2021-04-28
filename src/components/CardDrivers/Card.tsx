@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Loading from "../Loading/Loading";
 import styles from "./style.module.css";
 interface PropsCard {
   position: number;
@@ -10,6 +11,7 @@ interface PropsCard {
 }
 const Card = ({ name, position, team, image, points, isPlayer }: PropsCard) => {
   const [showInfo, setShowInfo] = React.useState(false);
+  const [imgLoading, setImgLoading] = React.useState(true);
 
   return (
     <>
@@ -26,7 +28,19 @@ const Card = ({ name, position, team, image, points, isPlayer }: PropsCard) => {
       {showInfo && (
         <div className={styles.cardInfo}>
           <div className={styles.cardInfo_content}>
-            <img src={image} alt={name} />
+            <div className={styles.img_driver}>
+              {imgLoading && (
+                <div className={styles.loading_img}>
+                  <Loading />
+                </div>
+              )}
+              <img
+                src={image}
+                alt={name}
+                className={!imgLoading ? styles.img_loaded : ""}
+                onLoad={() => setImgLoading(false)}
+              />
+            </div>
             <div className={styles.cardInfo_content_text}>
               <p>
                 <span>Nationality:</span>British
