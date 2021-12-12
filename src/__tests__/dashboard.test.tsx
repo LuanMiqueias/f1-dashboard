@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Dashboard from "../dashboard";
+import Dashboard from "../pages/dashboard";
 
 const DriversFake = [
   {
